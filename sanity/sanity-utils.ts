@@ -74,7 +74,7 @@ export function getCategories() {
    }) ; 
     
    return client.fetch(
-       groq`*[_type == "category"]| order(_createdAt desc) {
+       groq`*[_type == "category"] | order(_createdAt desc) {
         name, 
         "slug": slug.current,
         image, 

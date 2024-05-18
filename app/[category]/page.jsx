@@ -4,7 +4,7 @@ import Image from "next/image";
 import SideBar from "../../components/SideBar";
 
 async function getData(category) {
-  const query = `*[_type == "product" && category->slug.current == "${category}"] { _id, name, description, "slug": slug.current, "categoryName": category->name }`;
+  const query = `*[_type == "product"  && category->slug.current == "${category}"]  | order(_createdAt asc) { _id, name, description, "slug": slug.current, "categoryName": category->name }`;
   const data = await client.fetch(query);
   return data;
 }
