@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SideBarContent from "@/components/SideBarContent/SideBarContent";
 import { FaChevronRight } from "react-icons/fa";
 import { FaCircleChevronRight } from "react-icons/fa6";
 import { Fade as Hamburger } from "hamburger-react";
+import ProgressBar from "./ProgressBar/ProgressBar";
 
 const SideBar = ({ sidebarContentDataArray }) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -45,6 +46,8 @@ const SideBar = ({ sidebarContentDataArray }) => {
     setSelectedContent(sidebarContentDataArray[nextIndex].name);
   };
 
+  const mainRef = useRef(null);
+
   return (
     <>
       <div className="lg:hidden absolute top-[4rem] md:top-[6.8rem] left-[1.2rem] md:left-[2.5rem] z-50">
@@ -64,11 +67,13 @@ const SideBar = ({ sidebarContentDataArray }) => {
         </span>
       </div>
       <div
-        className={`bg-white w-[70vw] sm:w-[450px] flex gap-2 -ml-[1.2rem] md:-ml-[2.5rem] lg:-ml-[4rem] xl:-ml-[6.2rem] shadow-md rounded-br-3xl absolute lg:relative transition-transform duration-500 ease-in-out ${
+        className={` bg-white w-[70vw] sm:w-[450px] flex gap-2 -ml-[1.2rem] md:-ml-[2.5rem] lg:-ml-[4rem] xl:-ml-[6.2rem] shadow-md rounded-br-3xl absolute lg:relative transition-transform duration-500 ease-in-out ${
           isSidebarVisible ? "" : "-translate-x-full lg:-translate-x-0"
         }`}
+        ref={mainRef}
       >
-        <div className="flex flex-col gap-2 text-white font-medium py-10 md:py-20 text-[14px] md:text-[16px]">
+        <ProgressBar target={mainRef} />
+        <div className=" fixed flex flex-col gap-2 text-white font-medium py-10 md:py-20 text-[14px] md:text-[16px] ">
           {sidebarContentDataArray.map((item, index) => (
             <span
               key={index}
@@ -76,7 +81,7 @@ const SideBar = ({ sidebarContentDataArray }) => {
                 handleClick(item.name);
                 // toggleSidebar();
               }}
-              className={`leading-[21.6px] h-[80px] px-2 md:px-4 py-2 md:py-4 rounded-r-full flex justify-between items-center cursor-pointer ${
+              className={` leading-[21.6px] h-[80px] px-2 md:px-4 py-2 md:py-4 rounded-r-full flex justify-between items-center cursor-pointer ${
                 selectedContent === item.name
                   ? "bg-[#56E9EE] text-black"
                   : "bg-white text-black"
