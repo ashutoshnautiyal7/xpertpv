@@ -73,7 +73,7 @@ const SideBar = ({ sidebarContentDataArray }) => {
         ref={mainRef}
       >
         <ProgressBar target={mainRef} />
-        <div className=" fixed flex flex-col gap-2 text-white font-medium py-10 md:py-20 text-[14px] md:text-[16px] ">
+        <div className="flex flex-col gap-2 text-white font-medium py-10 md:py-20 text-[14px] md:text-[16px] ">
           {sidebarContentDataArray.map((item, index) => (
             <span
               key={index}
