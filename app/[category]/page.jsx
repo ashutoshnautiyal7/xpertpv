@@ -10,6 +10,7 @@ async function getData(category) {
 }
 
 export const dynamic = "force-dynamic";
+export const revalidate = 10;
 
 export default async function CategoryPage({ params }) {
   const { category } = params;
