@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { client } from "../../sanity/lib/client";
+import { client } from "../../../sanity/lib/client";
 import Image from "next/image";
-import SideBar from "../../components/SideBar";
+import SideBar from "../../../components/SideBar";
 
-async function getData(category) {
-  const query = `*[_type == "product"  && category->slug.current == "${category}"]  | order(_createdAt asc) { _id, name,productType, description, "slug": slug.current, "categoryName": category->name }`;
+async function getData(type) {
+  const query = `*[_type == "product"  && productType == "${type}"]  | order(_createdAt asc) { _id, name,productType, description, "slug": slug.current, "categoryName": category->name }`;
   const data = await client.fetch(query);
   return data;
 }
@@ -12,9 +12,9 @@ async function getData(category) {
 export const dynamic = "force-dynamic";
 
 export default async function CategoryPage({ params }) {
-  const { category } = params;
-  console.log("the category is ", category);
-  const data = await getData(category);
+  const { type } = params;
+  console.log("the type is ", type);
+  const data = await getData(type);
   console.log("the data to that cate ", data);
 
   const sidebarContentDataArray = [

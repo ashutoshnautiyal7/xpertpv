@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Section1 = () => {
@@ -21,9 +22,12 @@ const Section1 = () => {
             to build a solid understanding of drug safety.
           </p>
           <span className="flex">
-            <button className="text-white text-[14px] md:text-[20px] mt-6 md:mt-10 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] leading-6">
+            <Link
+              href={"/xplorePV/basic"}
+              className="text-white text-[14px] md:text-[20px] mt-6 md:mt-10 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] leading-6"
+            >
               Begin Learning
-            </button>
+            </Link>
           </span>
         </div>
       </div>
@@ -44,9 +48,12 @@ const Section1 = () => {
             enhance your proficiency and stay ahead of industry trends.
           </p>
           <span className="flex">
-            <button className="text-white text-[14px] md:text-[20px] mt-6 md:mt-10 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] leading-6">
+            <Link
+              href={"/xplorePV/advanced"}
+              className="text-white text-[14px] md:text-[20px] mt-6 md:mt-10 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] leading-6"
+            >
               Explore Advanced Topics
-            </button>
+            </Link>
           </span>
         </div>
       </div>

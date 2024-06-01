@@ -7,6 +7,10 @@ const SideBarContent = ({ content }) => {
       <h1 className="text-[26px] md:text-[32px] leading-[130%] md:leading-[42.24px] font-extrabold max-w-[600px] mx-auto text-center mt-6 md:mt-10 lg:mt-16 text-[#0383AB]">
         {content.name}
       </h1>
+      <div className="flex flex-col md:flex-row space-x-8 text-[26px] md:text-[24px] leading-[130%] md:leading-[42.24px] font-extrabold max-w-[600px] mx-auto text-center mt-6 md:my-10 lg:mt-16 text-[#437bcf] capitalize">
+        <h1> {content.productType}</h1>
+        <h1> {content.categoryName}</h1>
+      </div>
       <PortableText
         value={content.description}
         components={{

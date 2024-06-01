@@ -54,5 +54,16 @@ export default {
         },
       ],
     },
+    {
+      name: 'productType',
+      title: 'Product Type',
+      type: 'string',
+      options: {
+        list: [
+          { value: 'basic', title: 'Basic' },
+          { value: 'advanced', title: 'Advanced' },
+        ],
+      },
+    },
   ],
 }

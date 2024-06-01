@@ -18,10 +18,11 @@ export function getBlogs() {
        groq`*[_type == "product"]| order(_createdAt desc) {
         _id,
         name,
+        productType,
         description,
           "slug": slug.current,
           "categoryName": category->name,
-          "imageUrl": images[0].asset->url
+          "imageUrl": images[0].asset->url, 
       }`,
        
 
@@ -46,10 +47,11 @@ export async function getBlog(slug: string) {
         _id,
         name,
         images,
+        productType,
         description,
           "slug": slug.current,
           "categoryName": category->name,
-          "imageUrl": images[0].asset->url
+          "imageUrl": images[0].asset->url,
        }`,
 
        { slug }
