@@ -16,7 +16,7 @@ const Section1 = () => {
         <h2 className="text-white absolute top-11 sm:top-20 left-11 sm:left-20 text-[20px] md:text-[32px] lg:text-[48px] font-bold w-[200px] md:w-[436px] leading-[130%] md:leading-[120%]">
           Foundations of Pharmacovigilance
         </h2>
-        <div className="md:text-[20px] text-[#A1A1A1] md:leading-[27px] justify-between flex flex-col">
+        <div className="md:text-[20px] text-[#A1A1A1] md:leading-[180%] justify-between flex flex-col xl:p-6">
           <p>
             Master the fundamental principles and concepts of pharmacovigilance
             to build a solid understanding of drug safety.
@@ -42,7 +42,7 @@ const Section1 = () => {
         <h2 className="text-white absolute top-11 sm:top-20 left-11 sm:left-20 text-[20px] md:text-[32px] lg:text-[48px] font-bold w-[200px] md:w-[436px] leading-[130%] md:leading-[120%]">
           Dive Deeper into PV Expertise
         </h2>
-        <div className="md:text-[20px] text-[#A1A1A1] md:leading-[27px] justify-between flex flex-col">
+        <div className="md:text-[20px] text-[#A1A1A1] md:leading-[180%] justify-between flex flex-col xl:p-6">
           <p>
             Explore advanced topics and methodologies in pharmacovigilance to
             enhance your proficiency and stay ahead of industry trends.
