@@ -15,14 +15,12 @@ export function getBlogs() {
    }) ; 
     
    return client.fetch(
-       groq`*[_type == "product"]| order(_createdAt desc) {
+       groq`*[_type == "blog"]| order(_createdAt desc) {
         _id,
-        name,
-        productType,
+        title,
         description,
           "slug": slug.current,
-          "categoryName": category->name,
-          "imageUrl": images[0].asset->url, 
+         image,
       }`,
        
 
@@ -43,15 +41,12 @@ export async function getBlog(slug: string) {
     
    const data  = await  client.fetch(
        
-       groq`*[_type == 'product' && slug.current == $slug][0]{
+       groq`*[_type == 'blog' && slug.current == $slug][0]{
         _id,
-        name,
-        images,
-        productType,
+        title,
+        image,
         description,
           "slug": slug.current,
-          "categoryName": category->name,
-          "imageUrl": images[0].asset->url,
        }`,
 
        { slug }
