@@ -51,7 +51,9 @@ const Navbar = () => {
             </Link>
           </span>
           <button className="text-white px-5 md:px-9 py-1.5 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92]">
-            Login
+            <Link href={"/login"}>
+              Login
+            </Link>
           </button>
           <span className="hidden md:flex lg:hidden">
             <Hamburger toggled={isOpen} toggle={setOpen} size={30} />
@@ -63,9 +65,8 @@ const Navbar = () => {
       </div>
       {/* Sidebar */}
       <div
-        className={`sidebar ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } fixed bg-[#F4FEFF] h-screen w-[50vw] shadow-xl  transition-transform duration-500 ease-in-out z-10`}
+        className={`sidebar ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } fixed bg-[#F4FEFF] h-screen w-[50vw] shadow-xl  transition-transform duration-500 ease-in-out z-10`}
       >
         <div className="p-8">
           <span className="gap-16 lg:gap-20 flex flex-col">
