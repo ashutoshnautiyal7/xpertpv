@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import SideBarContent from "@/components/SideBarContent/SideBarContent";
-import { FaChevronRight } from "react-icons/fa";
-import { FaCircleChevronRight } from "react-icons/fa6";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Fade as Hamburger } from "hamburger-react";
 import ProgressBar from "./ProgressBar/ProgressBar";
 
@@ -96,29 +95,29 @@ const SideBar = ({ sidebarContentDataArray }) => {
           </span>
         </div>
         <div
-          className={`bg-white w-[70vw] sm:w-[450px] flex overflow-hidden gap-2 -ml-[1.2rem] md:-ml-[2.5rem] lg:-ml-[4rem] xl:-ml-[6.2rem] shadow-md rounded-br-3xl absolute lg:fixed transition-transform duration-500 ease-in-out ${isSidebarVisible ? "" : "-translate-x-full lg:-translate-x-0"}`}
+          className={`bg-[#0383AB1C] w-[70vw] sm:w-[450px] flex overflow-hidden gap-2 -ml-[1.2rem] md:-ml-[2.5rem] lg:-ml-[4rem] xl:-ml-[6.2rem] shadow-md rounded-br-3xl absolute lg:fixed transition-transform duration-500 ease-in-out ${isSidebarVisible ? "" : "-translate-x-full lg:-translate-x-0"}`}
           style={{
             top: `${sidebarTop}px`,
             transition: "top 0.5s ease, height 0.5s ease",
             height: `${bottom}%`,
           }}
         >
-          <div className="flex flex-col gap-2 text-white font-medium py-10 md:py-20 text-[14px] md:text-[16px] sticky top-0">
+          <div className="flex flex-col gap-6 text-white font-medium py-10 md:py-20 text-[14px] md:text-[16px] sticky top-0 overflow-y-scroll"
+            style={{ scrollbarWidth: "none" }}
+
+          >
             {sidebarContentDataArray.map((item, index) => (
               <span
                 key={index}
                 onClick={() => handleClick(item.name)}
-                className={`leading-[21.6px] h-[80px] px-2 md:px-4 py-2 md:py-4 rounded-r-full flex justify-between items-center cursor-pointer ${
-                  selectedContent === item.name
-                    ? "bg-[#56E9EE] text-black"
-                    : "bg-white text-black"
-                }`}
+                className={`leading-[21.6px] h-[80px] px-2 md:px-4 py-2 md:py-4 mx-4 rounded-xl shadow-md flex justify-between items-center cursor-pointer bg-white  text-black ${selectedContent === item.name
+                    ? "border-[1.5px] border-[#0383AB]"
+                    : ""
+                  }`}
               >
                 <span className="w-[90%] md:w-[85%]">{item.name}</span>
                 <span>
-                  {selectedContent !== item.name && (
-                    <FaChevronRight className="w-4 md:w-6 h-4 md:h-6" />
-                  )}
+                  <MdOutlineKeyboardArrowRight className="w-5 md:w-8 h-5 md:h-8" />
                 </span>
               </span>
             ))}
@@ -140,13 +139,12 @@ const SideBar = ({ sidebarContentDataArray }) => {
                     (item) => item.name === selectedContent
                   ) === 0
                 }
-                className={`text-white text-[14px] md:text-[20px] mt-8 md:mt-14 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] ${
-                  sidebarContentDataArray.findIndex(
-                    (item) => item.name === selectedContent
-                  ) === 0
+                className={`text-white text-[14px] md:text-[20px] mt-8 md:mt-14 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] ${sidebarContentDataArray.findIndex(
+                  (item) => item.name === selectedContent
+                ) === 0
                     ? "cursor-not-allowed"
                     : ""
-                }`}
+                  }`}
               >
                 Previous
               </button>
@@ -158,14 +156,13 @@ const SideBar = ({ sidebarContentDataArray }) => {
                   ) ===
                   sidebarContentDataArray.length - 1
                 }
-                className={`text-white text-[14px] md:text-[20px] mt-8 md:mt-14 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] ${
-                  sidebarContentDataArray.findIndex(
-                    (item) => item.name === selectedContent
-                  ) ===
-                  sidebarContentDataArray.length - 1
+                className={`text-white text-[14px] md:text-[20px] mt-8 md:mt-14 px-5 md:px-9 py-2 md:py-2.5 rounded-3xl bg-gradient-to-r from-[#56E9EE] to-[#016E92] ${sidebarContentDataArray.findIndex(
+                  (item) => item.name === selectedContent
+                ) ===
+                    sidebarContentDataArray.length - 1
                     ? "cursor-not-allowed"
                     : ""
-                }`}
+                  }`}
               >
                 Next
               </button>
