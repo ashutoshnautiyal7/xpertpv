@@ -114,7 +114,7 @@ const page = async ({ params }) => {
               </div>
               <div className="rounded w-full flex flex-col  mb-10">
                 {allData?.slice(0, 5).map((item) => (
-                  <a href={`/blogs/${item.slug}`}>
+                  <a key={item._id} href={`/blogs/${item.slug}`}>
                     <div
                       key={item.slug}
                       className="rounded w-full flex flex-col md:flex-row mb-10"
