@@ -40,6 +40,9 @@ const Navbar = () => {
             <Link href="/" onClick={closeSidebar}>
               Home
             </Link>
+            <Link href="/blogs" onClick={closeSidebar}>
+              Blogs
+            </Link>
             <Link href="/xplorePV" onClick={closeSidebar}>
               Xplore PV
             </Link>
